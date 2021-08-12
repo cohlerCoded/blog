@@ -14,10 +14,11 @@ const blogs = [
   { title: 'Woof!', user: 'imadog', body: 'Woof woof!' },
 ]
 
-const addBlogPost = (blog) => {
-  dispatch({ type: 'ADD_BLOGPOST', payload: blog })
+const addBlogPost = (dispatch) => {
+  return (blog) => {
+    dispatch({ type: 'ADD_BLOGPOST', payload: blog })
+  }
 }
-
 export const { Context, Provider } = createDataContext(
   blogReducer,
   { addBlogPost },
