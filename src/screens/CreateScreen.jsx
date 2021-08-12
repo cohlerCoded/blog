@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { Context } from '../context/BlogContext'
 
-export default function ShowScreen({ navigation }) {
+export default function CreateScreen({ navigation }) {
   const { state } = useContext(Context)
 
   const blogPost = state.find(
@@ -13,7 +13,7 @@ export default function ShowScreen({ navigation }) {
 
   return (
     <View>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>Create</Text>
     </View>
   )
 }
