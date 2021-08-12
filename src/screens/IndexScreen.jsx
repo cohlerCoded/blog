@@ -7,12 +7,7 @@ export default function IndexScreen() {
   const { state, addBlogPost } = useContext(Context)
   return (
     <View>
-      <Button
-        title='Add'
-        onPress={() =>
-          addBlogPost({ title: `Test number ${state.length + 1}` })
-        }
-      />
+      <Button title='Add' onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blogPost, i) => `${i}`}
@@ -20,6 +15,7 @@ export default function IndexScreen() {
           return (
             <View style={styles.row}>
               <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.title}>{item.id}</Text>
               <Feather style={styles.trashIcon} name='trash-2' />
             </View>
           )

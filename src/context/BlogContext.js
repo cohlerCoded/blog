@@ -3,7 +3,13 @@ import createDataContext from './createDataContext'
 const blogReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_BLOGPOST':
-      return [...state, action.payload]
+      return [
+        ...state,
+        {
+          id: Math.floor(Math.random() * 99999999),
+          title: `Test number ${state.length + 1}`,
+        },
+      ]
     default:
       return state
   }
@@ -15,8 +21,8 @@ const blogs = [
 ]
 
 const addBlogPost = (dispatch) => {
-  return (blog) => {
-    dispatch({ type: 'ADD_BLOGPOST', payload: blog })
+  return () => {
+    dispatch({ type: 'ADD_BLOGPOST' })
   }
 }
 export const { Context, Provider } = createDataContext(
