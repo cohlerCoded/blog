@@ -2,11 +2,18 @@ import React, { useContext } from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
 import { Context } from '../context/BlogContext'
 
-export default function IndexScreen() {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context)
+export default function IndexScreen({ navigation }) {
+  const { state } = useContext(Context)
+
+  const blogPost = state.find(
+    (blogPost) => blogPost.id === navigation.getParam('id')
+  )
+
+  const { title, id } = blogPost
+
   return (
     <View>
-      <Text style={styles.title}>Show Screen</Text>
+      <Text style={styles.title}>{title}</Text>
     </View>
   )
 }
