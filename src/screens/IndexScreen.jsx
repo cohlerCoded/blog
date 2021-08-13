@@ -11,7 +11,7 @@ import { Context } from '../context/BlogContext'
 import { Feather } from '@expo/vector-icons'
 
 export default function IndexScreen({ navigation }) {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context)
+  const { state, deleteBlogPost } = useContext(Context)
   return (
     <View>
       <FlatList
