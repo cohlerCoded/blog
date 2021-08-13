@@ -33,7 +33,9 @@ export default function CreateScreen({ navigation }) {
       <Button
         title='Add Blog Post'
         style={styles.button}
-        onPress={() => addBlogPost(title, content)}
+        onPress={() =>
+          addBlogPost(title, content, () => navigation.navigate('Index'))
+        }
       />
     </View>
   )
