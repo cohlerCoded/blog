@@ -10,9 +10,9 @@ import {
 import { Context } from '../context/BlogContext'
 
 export default function CreateScreen({ navigation }) {
-  const { state } = useContext(Context)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const { addBlogPost } = useContext(Context)
 
   return (
     <View>
@@ -30,7 +30,11 @@ export default function CreateScreen({ navigation }) {
         placeholder='Say Something...'
         style={styles.input}
       />
-      <Button title='Add Blog Post' style={styles.button} />
+      <Button
+        title='Add Blog Post'
+        style={styles.button}
+        onPress={() => addBlogPost(title, content)}
+      />
     </View>
   )
 }
