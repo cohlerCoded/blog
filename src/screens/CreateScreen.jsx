@@ -1,36 +1,53 @@
-import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
+import React, { useContext, useState } from 'react'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from 'react-native'
 import { Context } from '../context/BlogContext'
 
 export default function CreateScreen({ navigation }) {
   const { state } = useContext(Context)
-
-  //   const blogPost = state.find(
-  //     (blogPost) => blogPost.id === navigation.getParam('id')
-  //   )
-
-  //   const { title, id } = blogPost
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
 
   return (
     <View>
-      <Text style={styles.title}>Create</Text>
+      <Text style={styles.label}>Enter Title:</Text>
+      <TextInput
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+        placeholder='Blog Title'
+        style={styles.input}
+      />
+      <Text style={styles.label}>Enter Content:</Text>
+      <TextInput
+        value={content}
+        onChangeText={(text) => setContent(text)}
+        placeholder='Say Something...'
+        style={styles.input}
+      />
+      <Button title='Add Blog Post' style={styles.button} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-    borderBottomWidth: 1,
-    borderColor: 'grey',
+  label: {
+    fontSize: 20,
+    marginBottom: 5,
+    marginTop: 5,
+    marginLeft: 10,
   },
-  title: {
+  input: {
+    marginBottom: 20,
     fontSize: 18,
-  },
-  trashIcon: {
-    fontSize: 24,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginHorizontal: 10,
+    paddingHorizontal: 5,
   },
 })
