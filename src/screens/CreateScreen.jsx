@@ -5,11 +5,11 @@ import { Context } from '../context/BlogContext'
 export default function CreateScreen({ navigation }) {
   const { state } = useContext(Context)
 
-  const blogPost = state.find(
-    (blogPost) => blogPost.id === navigation.getParam('id')
-  )
+  //   const blogPost = state.find(
+  //     (blogPost) => blogPost.id === navigation.getParam('id')
+  //   )
 
-  const { title, id } = blogPost
+  //   const { title, id } = blogPost
 
   return (
     <View>
