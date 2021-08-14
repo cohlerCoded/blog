@@ -18,9 +18,9 @@ const blogReducer = (state, action) => {
   }
 }
 const blogs = [
-  { title: 'meow', user: 'onlysaysmeow', body: 'meow' },
-  { title: 'Boo Everyone!!!', user: 'hater', body: "I don't like people!" },
-  { title: 'Woof!', user: 'imadog', body: 'Woof woof!' },
+  { title: 'meow', id: 'onlysaysmeow', content: 'meow' },
+  { title: 'Boo Everyone!!!', id: 'hater', content: "I don't like people!" },
+  { title: 'Woof!', id: 'imadog', content: 'Woof woof!' },
 ]
 
 const addBlogPost = (dispatch) => {
@@ -38,5 +38,5 @@ const deleteBlogPost = (dispatch) => {
 export const { Context, Provider } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost },
-  []
+  blogs
 )

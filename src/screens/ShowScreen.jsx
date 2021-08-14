@@ -23,7 +23,11 @@ export default function ShowScreen({ navigation }) {
 ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Edit', { id: navigation.getParam('id') })
+        }
+      >
         <Feather name='edit' size={35} style={{ marginRight: 20 }} />
       </TouchableOpacity>
     ),
