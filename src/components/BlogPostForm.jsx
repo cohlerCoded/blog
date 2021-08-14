@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 
-export default function BlogPostForm() {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+export default function BlogPostForm({ intitialTitle, intitialContent }) {
+  const [title, setTitle] = useState(intitialTitle)
+  const [content, setContent] = useState(intitialContent)
   return (
     <View>
       <Text style={styles.label}>Enter Title:</Text>

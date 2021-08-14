@@ -10,7 +10,12 @@ export default function EditScreen({ navigation }) {
     (blogPost) => blogPost.id === navigation.getParam('id')
   )
 
-  return <BlogPostForm />
+  return (
+    <BlogPostForm
+      initialTitle={blogPost.title}
+      initialContent={blogPost.content}
+    />
+  )
 }
 
 const styles = StyleSheet.create({
