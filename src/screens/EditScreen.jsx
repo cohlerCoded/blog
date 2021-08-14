@@ -21,17 +21,17 @@ export default function EditScreen({ navigation }) {
 
   return (
     <View>
-      <Text style={styles.label}>Enter Title:</Text>
+      <Text style={styles.label}>Edit Title:</Text>
       <TextInput
         value={title}
-        onChangeText={(text) => setTitle(text)}
+        onChangeText={(newTitle) => setTitle(newTitle)}
         placeholder='Blog Title'
         style={styles.input}
       />
-      <Text style={styles.label}>Enter Content:</Text>
+      <Text style={styles.label}>Edit Content:</Text>
       <TextInput
         value={content}
-        onChangeText={(text) => setContent(text)}
+        onChangeText={(newContent) => setContent(newContent)}
         placeholder='Say Something...'
         style={styles.input}
       />
