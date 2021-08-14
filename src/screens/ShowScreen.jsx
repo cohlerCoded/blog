@@ -10,11 +10,12 @@ export default function ShowScreen({ navigation }) {
     (blogPost) => blogPost.id === navigation.getParam('id')
   )
 
-  const { title, id } = blogPost
+  const { title, content, id } = blogPost
 
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.content}>{content}</Text>
     </View>
   )
 }
@@ -23,7 +24,7 @@ ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
       <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
-        <Feather name='edit' size={30} style={{ marginRight: 15 }} />
+        <Feather name='edit' size={35} style={{ marginRight: 20 }} />
       </TouchableOpacity>
     ),
   }
@@ -39,7 +40,15 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginLeft: 10,
+  },
+  content: {
+    fontSize: 16,
+    marginTop: 10,
+    marginLeft: 10,
   },
   trashIcon: {
     fontSize: 24,
