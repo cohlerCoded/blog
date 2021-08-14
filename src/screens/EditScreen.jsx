@@ -1,12 +1,6 @@
-import React, { useContext, useState } from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from 'react-native'
+import React, { useContext } from 'react'
+import { StyleSheet } from 'react-native'
+import BlogPostForm from '../components/BlogPostForm'
 import { Context } from '../context/BlogContext'
 
 export default function EditScreen({ navigation }) {
@@ -16,34 +10,7 @@ export default function EditScreen({ navigation }) {
     (blogPost) => blogPost.id === navigation.getParam('id')
   )
 
-  const [title, setTitle] = useState(blogPost.title)
-  const [content, setContent] = useState(blogPost.content)
-
-  return (
-    <View>
-      <Text style={styles.label}>Edit Title:</Text>
-      <TextInput
-        value={title}
-        onChangeText={(newTitle) => setTitle(newTitle)}
-        placeholder='Blog Title'
-        style={styles.input}
-      />
-      <Text style={styles.label}>Edit Content:</Text>
-      <TextInput
-        value={content}
-        onChangeText={(newContent) => setContent(newContent)}
-        placeholder='Say Something...'
-        style={styles.input}
-      />
-      <Button
-        title='Add Blog Post'
-        style={styles.button}
-        onPress={() =>
-          addBlogPost(title, content, () => navigation.navigate('Index'))
-        }
-      />
-    </View>
-  )
+  return <BlogPostForm />
 }
 
 const styles = StyleSheet.create({
