@@ -6,7 +6,15 @@ import { Context } from '../context/BlogContext'
 export default function CreateScreen({ navigation }) {
   const { addBlogPost } = useContext(Context)
 
-  return <BlogPostForm initialTitle='' initialContent='' />
+  return (
+    <BlogPostForm
+      initialTitle=''
+      initialContent=''
+      onSubmit={(title, content) =>
+        addBlogPost(title, content, () => navigation.navigate('Index'))
+      }
+    />
+  )
 }
 
 const styles = StyleSheet.create({

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 
-export default function BlogPostForm({ intitialTitle, intitialContent }) {
+export default function BlogPostForm({
+  onSubmit,
+  intitialTitle,
+  intitialContent,
+}) {
   const [title, setTitle] = useState(intitialTitle)
   const [content, setContent] = useState(intitialContent)
   return (
@@ -20,7 +24,11 @@ export default function BlogPostForm({ intitialTitle, intitialContent }) {
         placeholder='Say Something...'
         style={styles.input}
       />
-      <Button title='Submit' style={styles.button} onPress={() => {}} />
+      <Button
+        title='Submit'
+        style={styles.button}
+        onPress={() => onSubmit(title, content)}
+      />
     </View>
   )
 }
