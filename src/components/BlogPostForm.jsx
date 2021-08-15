@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 
 const BlogPostForm = ({ onSubmit, initialValues }) => {
   const { title: blogTitle, content: blogContent } = initialValues
-  const [title, setTitle] = useState(blogTitle || '')
-  const [content, setContent] = useState(blogContent || '')
+  const [title, setTitle] = useState(blogTitle)
+  const [content, setContent] = useState(blogContent)
 
   return (
     <View>
@@ -48,4 +48,10 @@ const styles = StyleSheet.create({
   },
 })
 
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: '',
+    content: '',
+  },
+}
 export default BlogPostForm

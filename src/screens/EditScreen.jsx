@@ -16,10 +16,7 @@ const EditScreen = ({ navigation }) => {
         title: blogPost.title,
         content: blogPost.content,
       }}
-      onSubmit={
-        ((id, title, content) => editBlogPost(id, title, content),
-        () => navigation.navigate('Index'))
-      }
+      onSubmit={(title, content) => editBlogPost(id, title, content)}
     />
   )
 }
