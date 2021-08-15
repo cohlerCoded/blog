@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { StyleSheet } from 'react-native'
-import BlogPostForm from '../components/BlogPostForm'
 import { Context } from '../context/BlogContext'
+import BlogPostForm from '../components/BlogPostForm'
 
-export default function EditScreen({ navigation }) {
-  const { addBlogPost, state } = useContext(Context)
+const EditScreen = ({ navigation }) => {
+  const { state } = useContext(Context)
 
   const blogPost = state.find(
     (blogPost) => blogPost.id === navigation.getParam('id')
@@ -12,8 +12,11 @@ export default function EditScreen({ navigation }) {
 
   return (
     <BlogPostForm
-      initialTitle={blogPost.title}
-      initialContent={blogPost.content}
+      initialValues={{
+        title: blogPost.title,
+        content: blogPost.content,
+      }}
+      onSubmit={(title, content) => console.log(title, content)}
     />
   )
 }
@@ -34,3 +37,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
 })
+
+export default EditScreen

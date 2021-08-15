@@ -8,8 +8,6 @@ export default function CreateScreen({ navigation }) {
 
   return (
     <BlogPostForm
-      initialTitle=''
-      initialContent=''
       onSubmit={(title, content) =>
         addBlogPost(title, content, () => navigation.navigate('Index'))
       }

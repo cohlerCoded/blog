@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 
-export default function BlogPostForm({
-  onSubmit,
-  intitialTitle,
-  intitialContent,
-}) {
-  const [title, setTitle] = useState(intitialTitle)
-  const [content, setContent] = useState(intitialContent)
+const BlogPostForm = ({ onSubmit, initialValues }) => {
+  const { title: blogTitle, content: blogContent } = initialValues
+  const [title, setTitle] = useState(blogTitle || '')
+  const [content, setContent] = useState(blogContent || '')
+
   return (
     <View>
       <Text style={styles.label}>Enter Title:</Text>
@@ -49,3 +47,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
 })
+
+export default BlogPostForm
