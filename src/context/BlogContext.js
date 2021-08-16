@@ -1,7 +1,10 @@
+import jsonServer from '../api/jsonServer'
 import createDataContext from './createDataContext'
 
 const blogReducer = (state, action) => {
   switch (action.type) {
+    case 'GET_BLOGPOSTS':
+      return action.payload
     case 'ADD_BLOGPOST':
       return [
         ...state,
@@ -26,7 +29,13 @@ const blogs = [
   { title: 'Boo Everyone!!!', id: 'hater', content: "I don't like people!" },
   { title: 'Woof!', id: 'imadog', content: 'Woof woof!' },
 ]
+const getBlogPosts = (dispatch) => {
+  return async () => {
+    const res = await jsonServer.get('/blogposts')
 
+    dispatch({ type: 'GET_BLOGPOSTS', payload: res.data })
+  }
+}
 const addBlogPost = (dispatch) => {
   return (title, content, callback) => {
     dispatch({ type: 'ADD_BLOGPOST', payload: { title, content } })
@@ -48,6 +57,6 @@ const deleteBlogPost = (dispatch) => {
 }
 export const { Context, Provider } = createDataContext(
   blogReducer,
-  { addBlogPost, deleteBlogPost, editBlogPost },
-  blogs
+  { addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts },
+  []
 )
