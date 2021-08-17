@@ -24,11 +24,7 @@ const blogReducer = (state, action) => {
       return state
   }
 }
-const blogs = [
-  { title: 'meow', id: 'onlysaysmeow', content: 'meow' },
-  { title: 'Boo Everyone!!!', id: 'hater', content: "I don't like people!" },
-  { title: 'Woof!', id: 'imadog', content: 'Woof woof!' },
-]
+
 const getBlogPosts = (dispatch) => {
   return async () => {
     const res = await jsonServer.get('/blogposts')
