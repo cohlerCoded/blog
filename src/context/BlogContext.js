@@ -9,7 +9,7 @@ const blogReducer = (state, action) => {
       return [
         ...state,
         {
-          id: Math.floor(Math.random() * 99999999),
+          id: action.payload.id,
           title: action.payload.title,
           content: action.payload.content,
         },
@@ -49,7 +49,8 @@ const editBlogPost = (dispatch) => {
 }
 
 const deleteBlogPost = (dispatch) => {
-  return (id) => {
+  return async (id) => {
+    await jsonServer.delete(`/blogposts/${id}`)
     dispatch({ type: 'DELETE_BLOGPOST', payload: id })
   }
 }
